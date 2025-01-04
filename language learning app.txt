@@ -1,0 +1,119 @@
+import random
+
+common_german_words = [
+    {"German": "der", "English": ["the"]},
+    {"German": "die", "English": ["the"]},
+    {"German": "das", "English": ["the"]},
+    {"German": "und", "English": ["and"]},
+    {"German": "in", "English": ["in"]},
+    {"German": "zu", "English": ["to"]},
+    {"German": "ich", "English": ["I"]},
+    {"German": "mit", "English": ["with"]},
+    {"German": "nicht", "English": ["not"]},
+    {"German": "ein", "English": ["a", "an"]},
+    {"German": "eine", "English": ["a", "an"]},
+    {"German": "ist", "English": ["is"]},
+    {"German": "du", "English": ["you"]},
+    {"German": "er", "English": ["he"]},
+    {"German": "sie", "English": ["she", "they"]},
+    {"German": "es", "English": ["it"]},
+    {"German": "wir", "English": ["we"]},
+    {"German": "für", "English": ["for"]},
+    {"German": "auf", "English": ["on", "upon"]},
+    {"German": "sich", "English": ["oneself", "themselves"]},
+    {"German": "bei", "English": ["at", "by"]},
+    {"German": "haben", "English": ["to have"]},
+    {"German": "wie", "English": ["how", "like"]},
+    {"German": "was", "English": ["what"]},
+    {"German": "kann", "English": ["can"]},
+    {"German": "da", "English": ["there"]},
+    {"German": "alle", "English": ["all"]},
+    {"German": "sind", "English": ["are"]},
+    {"German": "hier", "English": ["here"]},
+    {"German": "auch", "English": ["also"]},
+    {"German": "so", "English": ["so", "such"]},
+    {"German": "werden", "English": ["will", "become"]},
+    {"German": "sein", "English": ["to be"]},
+    {"German": "wenn", "English": ["if", "when"]},
+    {"German": "gut", "English": ["good"]},
+    {"German": "müssen", "English": ["must"]},
+    {"German": "kein", "English": ["no", "none"]},
+    {"German": "mehr", "English": ["more"]},
+    {"German": "mein", "English": ["my"]},
+    {"German": "noch", "English": ["still", "yet"]},
+    {"German": "man", "English": ["one", "you"]},
+    {"German": "ihn", "English": ["him"]},
+    {"German": "dann", "English": ["then"]},
+    {"German": "wann", "English": ["when"]},
+    {"German": "sehen", "English": ["to see"]},
+    {"German": "kommen", "English": ["to come"]},
+    {"German": "weil", "English": ["because"]},
+    {"German": "nur", "English": ["only"]},
+    {"German": "jetzt", "English": ["now"]},
+    {"German": "uns", "English": ["us"]},
+    {"German": "diese", "English": ["this"]},
+    {"German": "wieder", "English": ["again"]},
+    {"German": "gehen", "English": ["to go"]},
+    {"German": "habe", "English": ["have"]},
+    {"German": "nehmen", "English": ["to take"]},
+    {"German": "weiß", "English": ["know"]},
+    {"German": "denn", "English": ["because"]},
+    {"German": "dort", "English": ["there"]},
+    {"German": "dass", "English": ["that"]},
+    {"German": "immer", "English": ["always"]},
+    {"German": "wer", "English": ["who"]},
+    {"German": "bitte", "English": ["please"]},
+    {"German": "wo", "English": ["where"]},
+    {"German": "genau", "English": ["exactly"]},
+    {"German": "war", "English": ["was"]},
+    {"German": "nein", "English": ["no"]},
+    {"German": "ja", "English": ["yes"]},
+    {"German": "alles", "English": ["everything"]},
+    {"German": "vielleicht", "English": ["perhaps"]},
+    {"German": "danke", "English": ["thank you"]},
+    {"German": "sicher", "English": ["sure", "safe"]},
+    {"German": "oder", "English": ["or"]},
+    {"German": "nach", "English": ["after", "to"]},
+    {"German": "viel", "English": ["much", "many"]},
+    {"German": "sagen", "English": ["to say"]},
+    {"German": "geben", "English": ["to give"]},
+    {"German": "machen", "English": ["to do", "to make"]},
+    {"German": "denken", "English": ["to think"]},
+    {"German": "wollen", "English": ["to want"]},
+    {"German": "arbeiten", "English": ["to work"]},
+    {"German": "sprechen", "English": ["to speak"]},
+    {"German": "verstehen", "English": ["to understand"]},
+    {"German": "fragen", "English": ["to ask"]},
+    {"German": "spielen", "English": ["to play"]},
+    {"German": "essen", "English": ["to eat"]},
+    {"German": "trinken", "English": ["to drink"]},
+    {"German": "laufen", "English": ["to run"]},
+    {"German": "lieben", "English": ["to love"]},
+    {"German": "finden", "English": ["to find"]},
+
+
+]
+def run_quiz(common_german_words):
+    random.shuffle(common_german_words)
+    score = 0
+    total_questions = len(common_german_words)
+    for words in common_german_words:
+        print(f"what is the translation of '{words['German']}'?")
+        user_answer = input("your answer : ").strip().lower()
+        correct_answer = words['English']
+        if user_answer == "exit":
+            print("you are out")
+            break
+        if user_answer in correct_answer:
+            print("correct \n")
+            score +=1
+        else:
+            print(f"you are wrong the correct answer is {words['English']}.\n ")
+    print(f"completed your score is {score}/{total_questions}")
+
+def main():
+    print("Welcome to the Language Learning Flashcards App!")
+    input("Press Enter to start the quiz...")
+    run_quiz(common_german_words)
+
+main()
