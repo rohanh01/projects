@@ -1,0 +1,49 @@
+import random
+
+class Player():            #handles user input
+    emojis = {'r':'🪨','p':'📃','s':'✂️'}
+    choices = ('r', 'p', 's')  # tuple
+
+    def user(self):
+        while True:
+            user_choice = input('Rock, paper, or scissors? (r/p/s): ').lower()
+            if user_choice not in Player.choices:
+                print('Invalid choice!')
+                return None
+            else:
+                return user_choice
+
+class Computer(Player):  # selects a random choice
+        def bot(self, user_choice):
+            self.computer_choice = random.choice(Player.choices)
+            print(f"you choose {Player.emojis[user_choice]}")
+            print(f"computer choose {Player.emojis[self.computer_choice]}")
+            return self.computer_choice
+
+class Game(Computer, Player):  # determine winner
+        def __init__(self, user_choice, computer_choice):
+            self.user_choice = user_choice
+            self.computer_choice = computer_choice
+
+        def play(self):
+            if self.user_choice == self.computer_choice:
+                print("it is a tie")
+            elif (user_choice == 'r' and computer_choice == 's') or \
+                    (user_choice == 'p' and computer_choice == 'r') or \
+                    (user_choice == 's' and computer_choice == 'p'):
+                print("You win!")
+            else:
+                print("Computer wins!")
+
+while True:
+    player = Player()  # creating object
+    user_choice = player.user()  # calls the user method if input is not valid it exits
+    computer = Computer()  # creating object
+    computer_choice = computer.bot(user_choice)
+    game = Game(user_choice, computer_choice)
+    game.play()
+
+    should_continue = input("dou you wanna continue y/n: ").lower()
+    if should_continue == 'n':
+        print("thanks for playing")
+        break
